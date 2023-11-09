@@ -7,21 +7,44 @@ import { ReactComponent as GoogleLogin} from "./components/svg/google_login.svg"
 import { useNavigate } from "react-router-dom";
 import './Login.css';
 
+<<<<<<< HEAD
 import 'firebase/firestore';
 import 'firebase/auth';
 import { signInWithGoogle } from './components/main/firebase_config.js';
 import { auth } from './components/main/firebase_config.js';
 import React from 'react';
 import { Link } from "react-router-dom";
+=======
+import React, { useState } from 'react';
+>>>>>>> ea90fe006b0e1a7dd32877e39f0de1c1219452d6
 
 import { useGoogleLogin } from '@react-oauth/google'
 
 export default function Login() {
 
+<<<<<<< HEAD
 
 
 
     
+=======
+const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+
+  const handleUsernameChange = (e) => {
+    setUsername(e.target.value);
+  }
+
+  const handlePasswordChange = (e) => {
+    setPassword(e.target.value);
+  }
+
+  const handleLogin = () => {
+    console.log('Username:', username);
+    console.log('Password:', password);
+    // 이후에 필요한 로그인 로직을 추가하세요.
+  }
+>>>>>>> ea90fe006b0e1a7dd32877e39f0de1c1219452d6
 
 
     const googleSocialLogin = useGoogleLogin({
