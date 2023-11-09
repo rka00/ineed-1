@@ -7,16 +7,25 @@ import { ReactComponent as GoogleLogin} from "./components/svg/google_login.svg"
 import { useNavigate } from "react-router-dom";
 import './Login.css';
 
+import 'firebase/firestore';
+import 'firebase/auth';
+import { signInWithGoogle } from './components/main/firebase_config.js';
+import { auth } from './components/main/firebase_config.js';
 import React from 'react';
+import { Link } from "react-router-dom";
 
 import { useGoogleLogin } from '@react-oauth/google'
 
-
-
 export default function Login() {
 
+
+
+
+    
+
+
     const googleSocialLogin = useGoogleLogin({
-        onSuccess: (codeResponse) => console.log(codeResponse),
+        onSuccess: (codeResponse) => {console.log(codeResponse); gotomain(); },
         flow: 'auth-code',
       })
 
@@ -44,11 +53,20 @@ export default function Login() {
 
 
      <p><Username /></p>
+     
      <p><Password /></p>
      <p><Next onClick={gotomain} /></p>
      <p><Login_with_others /></p>
      
      <GoogleLogin onClick={()=>googleSocialLogin()}/>
+        
+     
+
+
+    
+
+
+
     </div> 
     );
 
